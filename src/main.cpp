@@ -76,10 +76,7 @@ int main(void)
     /* Infinite loop */
     while (1)
     {
-        Leds::turn_on({Led::Orange, Led::Green});
-        for (int i = 0; i <= 1000000; i++);
-        Leds::turn_off({Led::Orange, Led::Green});
-        for (int i = 0; i <= 1000000; i++);
+      // TODO: Task manager run
     }
 }
 

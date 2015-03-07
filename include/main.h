@@ -41,6 +41,7 @@
 
 #include "stm32f4xx_hal.h"
 #include "Leds.hpp"
+#include "tasks.hpp"
 
 #endif /* __MAIN_H */
 
