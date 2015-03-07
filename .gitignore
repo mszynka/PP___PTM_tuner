@@ -3,7 +3,11 @@
 *.lo
 *.o
 *.obj
+
+# Custom
 build/*
+.note*
+*.mk
 
 # Precompiled Headers
 *.gch

@@ -1,1 +1,0 @@
-OBJSLIB := lib/stm32f4xx_hal_cortex.o lib/stm32f4xx_hal_flash_ex.o lib/stm32f4xx_hal_flash.o lib/stm32f4xx_hal_flash_ramfunc.o lib/stm32f4xx_hal_gpio.o lib/stm32f4xx_hal.o lib/stm32f4xx_hal_pwr_ex.o lib/stm32f4xx_hal_pwr.o lib/stm32f4xx_hal_rcc_ex.o lib/stm32f4xx_hal_rcc.o 
