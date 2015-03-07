@@ -6,8 +6,7 @@
 
 # Custom
 build/*
-*.sublime-project
-*.sublime-workspace
+*.sublime*
 .note*
 *.mk
 
