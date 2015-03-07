@@ -1,0 +1,15 @@
+# run openocd
+sudo openocd -f /usr/share/openocd/scripts/board/stm32f4discovery.cfg
+
+# commands
+telnet 127.0.0.1:4444
+reset run
+flash write_image erase nazwa_pliku (chyba tak to wyglądało mniej więcej)
+
+# reflash
+reset halt 
+flash write_image erase nazwa_pliku 
+reset run
+
+# warning
+run openocd in binaries catalog

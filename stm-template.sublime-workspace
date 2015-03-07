@@ -1,0 +1,699 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cmake_min",
+				"CMAKE_MINIMUM_REQUIRED_VERSION"
+			],
+			[
+				"jusi",
+				"justify-content"
+			],
+			[
+				"base",
+				"base-background"
+			],
+			[
+				"justi",
+				"justify-content"
+			],
+			[
+				"conte",
+				"content=\"width=device"
+			],
+			[
+				"name",
+				"name=\"viewport"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "#define USE_STDPERIPH_DRIVER\n#include \"stm32f4xx.h\"\n#include \"stm32f4xx_rcc.h\"\n#include \"stm32f4xx_tim.h\"\n#include \"stm32f4xx_exti.h\"\n#include \"stm32f4xx_syscfg.h\"\n#include \"misc.h\"\n\n//Quick hack, approximately 1ms delay\nvoid ms_delay(int ms)\n{\n   while (ms-- > 0) {\n      volatile int x=5971;\n      while (x-- > 0)\n         __asm(\"nop\");\n   }\n}\n\n//Flash orange LED at about 1hz\nint main(void)\n{\n    RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;  // enable the clock to GPIOD\n    GPIOD->MODER = (1 << 26);             // set pin 13 to be general purpose output\n\n    for (;;) {\n       ms_delay(500);\n       GPIOD->ODR ^= (1 << 13);           // Toggle the pin \n    }\n}",
+			"file": "main.c",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 658,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/mateusz/Documents/Programowanie/STM/kolokwium-Tomke-PTM1/main.c",
+			"settings":
+			{
+				"buffer_size": 6078,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/mateusz/Documents/Programowanie/STM/kolokwium-Tomke-PTM1/funkcje.txt",
+			"settings":
+			{
+				"buffer_size": 7523,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/SASS Build/SASS.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"cmake sub",
+				"Snippet: CMake: add_subdirectory(...)"
+			],
+			[
+				"cmake e",
+				"Set Syntax: CMakeEditor"
+			],
+			[
+				"cmake",
+				"Set Syntax: CMake"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"c#",
+				"Set Syntax: C#"
+			],
+			[
+				"ana er",
+				"Anaconda: Show error list"
+			],
+			[
+				"ana erro",
+				"Anaconda: Show error list"
+			],
+			[
+				"anaconda erro",
+				"Anaconda: Show error list"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"python",
+				"Set Syntax: Python3"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python3"
+			],
+			[
+				"w",
+				"Web Inspector"
+			],
+			[
+				"we",
+				"Web Inspector"
+			],
+			[
+				"web",
+				"Web Inspector"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"color",
+				"Color Picker"
+			],
+			[
+				"angular",
+				"Snippet: Angular.js"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"aut",
+				"Autoprefix CSS"
+			],
+			[
+				"box",
+				"Snippet: box-shadow"
+			],
+			[
+				"auto",
+				"Autoprefix CSS"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"html5",
+				"Set Syntax: HTML5"
+			],
+			[
+				"ang",
+				"Snippet: HTML w/ AngularJS"
+			],
+			[
+				"todo",
+				"Snippet: Comment - To-do list"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"iu",
+				"Preferences: Settings - User"
+			],
+			[
+				"instlal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/mateusz/STUDIA/PRZEDMIOTY/Sem 4/PTM/Projekt/template"
+	],
+	"file_history":
+	[
+		"/home/mateusz/STUDIA/PRZEDMIOTY/Sem 4/PTM/Projekt/template/$TRASH/main.c",
+		"/home/mateusz/STUDIA/PRZEDMIOTY/Sem 4/PTM/Projekt/template/include/timer.h",
+		"/home/mateusz/STUDIA/PRZEDMIOTY/Sem 4/PTM/Projekt/template/main.c",
+		"/home/mateusz/STUDIA/PRZEDMIOTY/Sem 4/PTM/Projekt/template/include/task.h",
+		"/home/mateusz/Downloads/northwind.sql",
+		"/home/mateusz/Documents/Programowanie/STM/Makefile to CMake conversion/HAL/CMakeLists.txt",
+		"/home/mateusz/Documents/Programowanie/STM/Makefile to CMake conversion/hal.CMakeLists.txt",
+		"/var/www/wcm_mashup/hhtaccess",
+		"/var/www/wcm_mashup/wcm_mashup.sublime-project",
+		"/var/www/wcm_mashup/css/_colors.scss",
+		"/var/www/wcm_mashup/css/bourbon/css3/_animation.scss",
+		"/home/mateusz/Google Drive/STUDIA/PRZEDMIOTY/ROK 2/Sem 3/SOp/SOp - przykładowe egzaminacyjne.txt",
+		"/home/mateusz/Google Drive/STUDIA/PRZEDMIOTY/Sem 3/SOp/SOp - przykładowe egzaminacyjne.txt",
+		"/var/www/wcm_mashup/css/_fonts.scss",
+		"/var/www/wcm_mashup/css/bourbon/functions/_is-number.scss",
+		"/var/www/wcm_mashup/css/main.css",
+		"/var/www/wcm_mashup/css/_reset.scss",
+		"/var/www/wcm_mashup/css/main.css.map",
+		"/home/mateusz/.config/sublime-text-3/Packages/CSSTidy/CSSTidy.sublime-settings",
+		"/home/mateusz/.config/sublime-text-3/Packages/User/SassBeautify.sublime-settings",
+		"/home/mateusz/.config/sublime-text-3/Packages/SassBeautify/SassBeautify.sublime-settings",
+		"/var/www/wcm_mashup/.htaccess",
+		"/home/mateusz/Google Drive/STUDIA/PRZEDMIOTY/Sem 3/SOp/Exam-QA.txt",
+		"/home/mateusz/.cache/.fr-fVESff/TS2vbox/TSvboxscript_linux.sh",
+		"/home/mateusz/Google Drive/STUDIA/PRZEDMIOTY/Sem 3/SOp/Exam-QA",
+		"/home/mateusz/Documents/Programowanie/Webdev/Snippets/Angular learning/index.html",
+		"/home/mateusz/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data[",
+			"(data\\[[0-9]\\]\\*)",
+			" }",
+			" { color",
+			".c",
+			" }",
+			" { color",
+			".c",
+			"}",
+			"{",
+			".co",
+			"primary-",
+			"5px"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"int(data["
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52,
+								52
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright.tmTheme",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax_mgr_loaded": true,
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/mateusz/Documents/Programowanie/STM/kolokwium-Tomke-PTM1/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright.tmTheme",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax_mgr_loaded": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/mateusz/Documents/Programowanie/STM/kolokwium-Tomke-PTM1/funkcje.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								276,
+								276
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright.tmTheme",
+							"syntax": "Packages/C++/C.tmLanguage",
+							"syntax_mgr_loaded": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"output.anaconda_documentation":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 80.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "stm-template.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control Messages"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 508.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/var/www/wcm_mashup/wcm_mashup.sublime-project"
+			]
+		],
+		"width": 386.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 230.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
