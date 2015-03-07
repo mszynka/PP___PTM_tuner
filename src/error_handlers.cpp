@@ -1,11 +1,10 @@
+/**
+ * LEGACY CODE
+ */
+
 #include "error_handlers.hpp"
 
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @param  None
-  * @retval None
-  */
-static void Error_Handler(void)
+void Error_Handler(void)
 {
   while(1)
   {
@@ -16,13 +15,23 @@ static void Error_Handler(void)
   }
 }
 
-/**
-  * @brief  This function is executed in case of error occurrence with output message.
-  * @param  error_message
-  * @retval None
-  */
-static void Error_Handler(error_message)
+void mError_Handler(uint8_t value)
 {
-  Leds::turn_on({error_message});
+  Leds::reset();
+  switch(value)
+  {
+    case 0:
+      Leds::turn_on({Led::Green});
+      break;
+    case 1:
+      Leds::turn_on({Led::Orange});
+      break;
+    case 2:
+      Leds::turn_on({Led::Blue});
+      break;
+    default:
+      Leds::turn_on({Led::Green,Led::Orange,Led::Blue});
+      break;
+  }
   Error_Handler();
 }

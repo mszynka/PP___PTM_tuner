@@ -37,5 +37,13 @@ class Leds {
 		 * @brief Turns all given Leds off.
 		 */
 		static void turn_off(std::initializer_list<Led> leds);
+    /**
+     * @brief Turns all Leds off
+     */
+    static void reset();
+    /**
+     * @brief Turns all Leds on
+     */
+    static void all();
 };
 #endif // LEDS_HPP

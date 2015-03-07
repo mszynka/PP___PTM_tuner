@@ -35,4 +35,14 @@ void Leds::turn_off(std::initializer_list<Led> leds) {
 	HAL_GPIO_TogglePin(GPIOD, static_cast<uint16_t>(bitmask.to_ulong()));
 }
 
+void Leds::reset()
+{
+  Leds::turn_off({Led::Red,Led::Orange,Led::Blue,Led::Green});
+}
+
+void Leds::all()
+{
+  Leds::turn_on({Led::Red,Led::Orange,Led::Blue,Led::Green});
+}
+
 bool Leds::__initialized = false;

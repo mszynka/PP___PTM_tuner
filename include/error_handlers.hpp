@@ -8,30 +8,22 @@
 #include "Leds.hpp"
 
 /**
- * 	@brief	Contains convenient names for error messages.
- * 	       	Color-coding-wise:
- * 	       		Green	task
- * 	       		Yellow	audio
- * 	       		Blue	display
- */
-enum class error_message : uint16_t {
-	task = Led::Green,
-	audio = Led::Yellow,
-	display = Led::Blue
-};
-
-/**
   * @brief  This function is executed in case of error occurrence.
   * @param  None
   * @retval None
   */
-static void Error_Handler(void);
+void Error_Handler(void);
 
 /**
   * @brief  This function is executed in case of error occurrence with output message.
-  * @param  error_message
-  * @retval None
-  */
-static void Error_Handler(error_message);
+  * 	      Color-coding-wise:
+ 	* 	      	Green		task 		 0
+ 	* 	      	Orange	audio		 1
+ 	* 	      	Blue		display  2
+	* @param  uint8_t
+	* @retval None
+	*/
+void mError_Handler(uint8_t value);
 
-#endif
+
+#endif // ERROR_HANDLERS_HPP
