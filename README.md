@@ -3,7 +3,7 @@ STM guitar tuner
 
 This project has a purpose of tuning sound by reading from audio input, processing and displaying output on display.
 
-Features to be:
+Features to be
 ------------------
 
 0. Audio input processing
