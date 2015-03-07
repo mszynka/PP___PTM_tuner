@@ -15,7 +15,7 @@ void Error_Handler(void)
   }
 }
 
-void mError_Handler(uint8_t value)
+void mError_Handler(int8_t value)
 {
   Leds::reset();
   switch(value)

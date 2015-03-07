@@ -52,13 +52,9 @@
 */
 
 #include "main.h"
-#include "error_handlers.hpp"
-
-static void SystemClock_Config(void);
 
 int main(void)
 {
-
     /* STM32F4xx HAL library initialization:
        - Configure the Flash prefetch, Flash preread and Buffer caches
        - Systick timer is configured by default as source of time base, but user 
@@ -149,8 +145,7 @@ static void SystemClock_Config(void)
   }
 }
 
-#ifdef  USE_FULL_ASSERT
-
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -168,4 +163,4 @@ void assert_failed(uint8_t* file, uint32_t line)
   {
   }
 }
-#endif
+#endif // USE_FULL_ASSERT

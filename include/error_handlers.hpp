@@ -23,7 +23,7 @@ void Error_Handler(void);
 	* @param  uint8_t
 	* @retval None
 	*/
-void mError_Handler(uint8_t value);
+void mError_Handler(int8_t value);
 
 
 #endif // ERROR_HANDLERS_HPP

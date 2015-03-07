@@ -74,7 +74,7 @@ class TaskManager
     /**
      * @brief   Task static array constains informations about every task running in system
      */
-		Task task_array[TASK_STACK_SIZE];
+		static Task task_array[TASK_STACK_SIZE];
 
 	public:
 };
