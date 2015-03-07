@@ -35,31 +35,27 @@
   ******************************************************************************
   */
 
-/* Includes ------------------------------------------------------------------*/
+/*
+ +------------------------------------------------+
+ |                  Tuner STM32                   |
+ +------------------------------------------------+
+ |                                                |
+ | Authors:                                       |
+ |   Jakub Piotr                                  |
+ |   Mateusz Szynka                               |
+ |                                                |
+ | Brief:                                         |
+ |   Tuning via audio input                       |
+ |   Displaying via display                       |
+ |                                                |
+ +------------------------------------------------+
+*/
+
 #include "main.h"
 
-/** @addtogroup STM32F4xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup Templates
-  * @{
-  */
-
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 
-/* Private functions ---------------------------------------------------------*/
-/**
-  * @brief  Main program
-  * @param  None
-  * @retval None
-  */
 int main(void)
 {
 
@@ -155,6 +151,7 @@ static void SystemClock_Config(void)
     __HAL_FLASH_PREFETCH_BUFFER_ENABLE();
   }
 }
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @param  None
@@ -165,6 +162,10 @@ static void Error_Handler(void)
   /* User may add here some code to deal with this error */
   while(1)
   {
+    Leds::turn_on({Led::Red});
+    for(int i=0; i<= 100000; i++);
+    Leds::turn_off({Led::Red});
+    for(int i=0; i<= 100000; i++);
   }
 }
 
@@ -188,13 +189,3 @@ void assert_failed(uint8_t* file, uint32_t line)
   }
 }
 #endif
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
