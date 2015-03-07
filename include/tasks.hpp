@@ -1,6 +1,3 @@
-#ifndef TASKS_HPP
-#define TASKS_HPP
-
 /*
 	Number of tasks on task stack being managed by TaskManager
  */
@@ -19,20 +16,42 @@
 #define TASK_SWITCH_TIMEOUT 100
 #endif
 
+#ifndef TASKS_HPP
+#define TASKS_HPP
+
+typedef void (*callback_t)(void);
+
 class Task
 {
 	private:
-		static void (*funct)();
+		callback_t p_function;
 
 	public:
-		Task();
-		static void initialize(void funct);
+		Task()
+		{
+			this->p_function = NULL;
+		}
+
+		~Task(){}
+
+		void init(callback_t funct)
+		{
+			this->p_function = funct;
+		}
+
+		void exec()
+		{
+			if(this->p_function!=NULL)
+				this->p_function();
+			else
+				Error_Handler();
+		}
 };
 
 class TaskManager
 {
 	private:
-		Task* task_array;
+		Task task_array[TASK_STACK_SIZE];
 
 	public:
 };

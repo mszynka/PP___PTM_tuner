@@ -52,9 +52,9 @@
 */
 
 #include "main.h"
+#include "error_handlers.hpp"
 
 static void SystemClock_Config(void);
-static void Error_Handler(void);
 
 int main(void)
 {
@@ -146,23 +146,6 @@ static void SystemClock_Config(void)
   {
     /* Enable the Flash prefetch */
     __HAL_FLASH_PREFETCH_BUFFER_ENABLE();
-  }
-}
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @param  None
-  * @retval None
-  */
-static void Error_Handler(void)
-{
-  /* User may add here some code to deal with this error */
-  while(1)
-  {
-    Leds::turn_on({Led::Red});
-    for(int i=0; i<= 100000; i++);
-    Leds::turn_off({Led::Red});
-    for(int i=0; i<= 100000; i++);
   }
 }
 
