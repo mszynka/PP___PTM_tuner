@@ -72,11 +72,34 @@ class TaskManager
 {
 	private:
     /**
-     * @brief   Task static array constains informations about every task running in system
+     * @brief   Task array constains informations about every task running in system
      */
-		static Task task_array[TASK_STACK_SIZE];
+		Task task_array[TASK_STACK_SIZE];
+    uint16_t taskCounter;
 
 	public:
+    /**
+     * @brief   Standard constructor. Sets taskCounter to 0.
+     */
+    TaskManager();
+
+    /**
+     * @brief   Standard destructor
+     */
+    ~TaskManager();
+
+    /**
+     * @brief   Adds task to stack queue if it is possible 
+     *          (depends on TASK_STACK_SIZE and loaded tasks)
+     * @param   Callback handler for function to execute in task
+     */
+    void add_task(callback_t); //TODO: if stacksize < added task counter -> ERROR
+
+    /**
+     * @brief   Main function of TaskManager
+     *          Executes tasks and manages task queue (array)
+     */
+    void scheduler();
 };
 
 #endif // TASKS_HPP

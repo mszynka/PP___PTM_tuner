@@ -23,3 +23,27 @@ void Task::exec()
   else
     mError_Handler(0);
 }
+
+TaskManager::TaskManager()
+{
+  this->taskCounter = 0;
+}
+
+TaskManager::~TaskManager()
+{
+}
+
+void TaskManager::add_task(callback_t funct)
+{
+  #if TASK_STACK_SIZE <= 1
+  #error Task stack size too small!
+  #else
+  this->task_array[this->taskCounter].init(funct);
+  this->taskCounter++;  
+  #endif
+}
+
+void TaskManager::scheduler()
+{
+  //TODO: write scheduler
+}
