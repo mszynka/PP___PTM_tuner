@@ -52,6 +52,11 @@
 */
 
 #include "main.h"
+#include "tasks.hpp"
+
+ void test1();
+ void test2();
+ void test3();
 
 int main(void)
 {
@@ -69,11 +74,36 @@ int main(void)
     /* Configure the system clock to 168 MHz */
     SystemClock_Config();
 
+    /* Initialize task manager */
+    TaskManager tm;
+
+    /* Add tasks */
+    tm.add_task(test1);
+
     /* Infinite loop */
     while (1)
     {
       // TODO: Task manager run
+      tm.scheduler();
     }
+}
+
+void test1()
+{
+  for(int i=0; i<1000000;i++){}
+  Leds::all();
+  for(int i=0; i<1000000;i++){}
+  Leds::reset();
+}
+
+void test2()
+{
+
+}
+
+void test3()
+{
+
 }
 
 /**

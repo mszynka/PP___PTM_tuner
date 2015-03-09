@@ -2,7 +2,7 @@
  * @brief Number of tasks on task stack being managed by TaskManager
  */
 #ifndef TASK_STACK_SIZE
-#define TASK_STACK_SIZE 2
+#define TASK_STACK_SIZE 1
 #endif // TASK_STACK_SIZE
 
 /**
@@ -76,6 +76,7 @@ class TaskManager
      */
 		Task task_array[TASK_STACK_SIZE];
     uint16_t taskCounter;
+    uint16_t currentTask;
 
 	public:
     /**
