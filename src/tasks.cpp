@@ -40,14 +40,14 @@ void TaskManager::add_task(callback_t funct)
   #error Task stack size too small!
   #else
   this->task_array[this->taskCounter].init(funct);
-  this->taskCounter++;  
+  this->taskCounter++; 
   #endif
 }
 
 void TaskManager::scheduler()
 {
-  //TODO: write scheduler
+  //TODO: use watchdog
   this->task_array[this->currentTask].exec();
-  if(this->currentTask < TASK_STACK_SIZE-1) this->currentTask++;
+  if(this->currentTask < taskCounter) this->currentTask++;
   else this->currentTask = 0;
 }

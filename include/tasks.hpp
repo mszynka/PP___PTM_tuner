@@ -2,7 +2,7 @@
  * @brief Number of tasks on task stack being managed by TaskManager
  */
 #ifndef TASK_STACK_SIZE
-#define TASK_STACK_SIZE 1
+#define TASK_STACK_SIZE 4
 #endif // TASK_STACK_SIZE
 
 /**
@@ -94,7 +94,7 @@ class TaskManager
      *          (depends on TASK_STACK_SIZE and loaded tasks)
      * @param   Callback handler for function to execute in task
      */
-    void add_task(callback_t); //TODO: if stacksize < added task counter -> ERROR
+    void add_task(callback_t);
 
     /**
      * @brief   Main function of TaskManager
