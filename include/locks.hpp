@@ -17,6 +17,11 @@ class Lock
 
   public:
     /**
+     * @brief   Standard constructor
+     */
+    Lock();
+    
+    /**
      * @brief   Checks is the lock is locked and if not locks it
      * @param   None
      * @retval  None
