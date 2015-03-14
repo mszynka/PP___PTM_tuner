@@ -1,5 +1,10 @@
 #include "locks.hpp"
 
+Lock::Lock()
+{
+  this->isLocked = false;
+}
+
 void Lock::aquire()
 {
   while(this->isLocked)

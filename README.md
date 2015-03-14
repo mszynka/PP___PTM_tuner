@@ -13,9 +13,19 @@ Features to be
 Compiler
 -----------------
 
-The project is compiled on linux machine by arm-stm based compiler and gcc. Flashingwise probably openocd, but not considered yet.
+The project is compiled on linux machines by arm-stm based compiler and gcc. Makefile provided. Flashingwise we are using openocd via telnet.
 
 Participants
 ------------------
 0. Jakub Piotr
 0. Mateusz Szynka
+
+Working and tested
+------------------
+0. Tasks
+
+TODO list
+------------------
+0. Audio input
+0. Audio processing
+0. Video output and processing

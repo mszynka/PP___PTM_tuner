@@ -16,10 +16,12 @@
 
 #include "main.h"
 #include "tasks.hpp"
+#include "locks.hpp"
 
- void test1();
- void test2();
- void test3();
+void videoOutput();
+
+int audioValue = 100;
+Lock l_audioValue;
 
 int main(void)
 {
@@ -41,27 +43,17 @@ int main(void)
     TaskManager tm;
 
     /* Add tasks */
-    tm.add_task(test1);
-    tm.add_task(test2);
+    tm.add_task(videoOutput);
 
     tm.scheduler();
 }
 
-void test1()
+/**
+ * @brief   Prints out the audioValue and some other usefull things (TODO)
+ */
+void videoOutput()
 {
-  for(int i=0; i<1000000;i++){}
-  Leds::all();
-}
-
-void test2()
-{
-  for(int i=0; i<1000000;i++){}
-  Leds::reset();
-}
-
-void test3()
-{
-
+  // Some code
 }
 
 /**
