@@ -1,3 +1,5 @@
+/* LEGACY CODE */
+
 /**
  * @brief Number of tasks on task stack being managed by TaskManager
  */

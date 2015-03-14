@@ -1,3 +1,5 @@
+/* LEGACY CODE */
+
 #include "tasks.hpp"
 
 Task::Task()
@@ -16,9 +18,7 @@ void Task::exec()
 {
   if(this->function_h != NULL)
   {
-    //TODO: enable timer
     this->function_h();
-    //TODO: disable timer
   }
   else
     mError_Handler(0);
@@ -40,14 +40,15 @@ void TaskManager::add_task(callback_t funct)
   #error Task stack size too small!
   #else
   this->task_array[this->taskCounter].init(funct);
-  this->taskCounter++; 
+  this->taskCounter++;
   #endif
 }
 
 void TaskManager::scheduler()
 {
-  //TODO: use watchdog
-  this->task_array[this->currentTask].exec();
-  if(this->currentTask < taskCounter) this->currentTask++;
-  else this->currentTask = 0;
+  while(true){
+    this->task_array[this->currentTask].exec();
+    if(this->currentTask < this->taskCounter-1) this->currentTask++;
+    else this->currentTask = 0;
+  }
 }

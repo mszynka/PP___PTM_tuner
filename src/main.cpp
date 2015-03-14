@@ -44,11 +44,7 @@ int main(void)
     tm.add_task(test1);
     tm.add_task(test2);
 
-    /* Infinite loop */
-    while (1)
-    {
-      tm.scheduler();
-    }
+    tm.scheduler();
 }
 
 void test1()
