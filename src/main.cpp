@@ -20,7 +20,7 @@
 
 void videoOutput();
 
-int audioValue = 100;
+uint16_t audioValue = 100;
 Lock l_audioValue;
 
 int main(void)
