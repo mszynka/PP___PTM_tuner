@@ -16,6 +16,7 @@
 
 #include "main.h"
 #include "tasks.hpp"
+#include "display.hpp"
 #include "locks.hpp"
 
 void videoOutput();

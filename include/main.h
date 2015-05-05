@@ -41,8 +41,6 @@
 
 #include "stm32f4xx_hal.h"
 #include "Leds.hpp"
-#include "tasks.hpp"
-#include "display.hpp"
 #include "error_handlers.hpp"
 
 static void SystemClock_Config(void);
