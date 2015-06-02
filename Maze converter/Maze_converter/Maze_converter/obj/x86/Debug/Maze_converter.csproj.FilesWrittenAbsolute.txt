@@ -1,0 +1,5 @@
+/home/mateusz/Documents/Programowanie/STM/tuner/Maze converter/Maze_converter/Maze_converter/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/mateusz/Documents/Programowanie/STM/tuner/Maze converter/Maze_converter/Maze_converter/bin/Debug/Maze_converter.exe.mdb
+/home/mateusz/Documents/Programowanie/STM/tuner/Maze converter/Maze_converter/Maze_converter/bin/Debug/Maze_converter.exe
+/home/mateusz/Documents/Programowanie/STM/tuner/Maze converter/Maze_converter/Maze_converter/obj/x86/Debug/Maze_converter.exe
+/home/mateusz/Documents/Programowanie/STM/tuner/Maze converter/Maze_converter/Maze_converter/obj/x86/Debug/Maze_converter.exe.mdb
