@@ -38,3 +38,10 @@ build/*
 
 # CodeLite
 *.project
+
+logs/
+*.coproj
+*.elf.*
+*.userprefs
+bin/
+obj/
