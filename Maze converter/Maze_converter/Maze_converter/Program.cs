@@ -22,19 +22,19 @@ namespace Maze_converter
 				}
 			}
 			using (StreamWriter sw = new StreamWriter (filename + ".o")) {
-				sw.Write ("[\n");
+				sw.Write ("{\n");
 				for (int i = 0; i < 48; i++) {
-					sw.Write ("[");
+					sw.Write ("{");
 					for (int j = 0; j < 84; j++) {
 						sw.Write (input [i] [j]);
 						if (j < 83)
 							sw.Write (",");
 					}
-					sw.Write ("]");
+					sw.Write ("}");
 					if (i < 47)
 						sw.Write (",\n");
 				}
-				sw.Write ("\n];");
+				sw.Write ("\n};");
 			}
 			;
 		}
