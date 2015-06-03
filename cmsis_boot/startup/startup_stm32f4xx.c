@@ -21,7 +21,7 @@
     
 
 /*----------Stack Configuration-----------------------------------------------*/
-#define STACK_SIZE       0x00000200      /*!< The Stack size suggest using even number    */
+#define STACK_SIZE       0x00000400      /*!< The Stack size suggest using even number    */
 __attribute__ ((section(".co_stack")))
 unsigned long pulStack[STACK_SIZE];
 
@@ -296,7 +296,12 @@ void Default_Reset_Handler(void)
 #endif	
 
   /* Call the application's entry point.*/
+#ifdef SYSTEM_LIB
+ extern int _start(void);
+ _start();
+#else
   main();
+#endif
 }
 
 

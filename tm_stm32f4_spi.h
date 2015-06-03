@@ -31,7 +31,7 @@
 
 /* C++ detection */
 #ifdef __cplusplus
-extern C {
+//extern C {
 #endif
 
 /**
@@ -498,7 +498,7 @@ __weak void TM_SPI_InitCustomPinsCallback(SPI_TypeDef* SPIx);
 
 /* C++ detection */
 #ifdef __cplusplus
-}
+//}
 #endif
 
 #endif

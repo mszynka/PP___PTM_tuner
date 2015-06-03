@@ -2,9 +2,10 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_spi.h"
+#include "stm32f4xx_tim.h"
+#include "misc.h"
 
 #include "defines.h"
-#include "stm32f4xx.h"
 
 /*
  * Display
@@ -17,9 +18,11 @@
 #include "tm_stm32f4_lis302dl_lis3dsh.h"
 
 /*
- * Global GPIO structure
+ * Global structures
  */
 GPIO_InitTypeDef GPIO_InitStruct;
+TIM_TimeBaseInitTypeDef	TIM_TimeBaseStructure;
+
 
 /*
  * Led enum shorthand
@@ -36,9 +39,27 @@ typedef enum {
  * Prototype declarations
  */
 void msGPIO_Init(void);
+void msTIM_Init(void);
 void LedOff(led_t x);
 void LedOn(led_t x);
 void delay(int x);
+
+/*
+ * Timer handler
+ */
+int xyz = 0;
+void TIM4_IRQHandler(void){
+	if(TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET){
+		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+		if(xyz%2==0){
+			LedOn(LED_GREEN);
+		}
+		else{
+			LedOff(LED_GREEN);
+		}
+		xyz++;
+	}
+}
 
 int main(void)
 {
@@ -50,6 +71,7 @@ int main(void)
 	SystemInit();
 	SystemCoreClockUpdate();
 	msGPIO_Init();
+	msTIM_Init();
 
 	/*
 	 * Display initialization
@@ -61,17 +83,15 @@ int main(void)
 	// 4. game project
 
 	if (TM_LIS302DL_LIS3DSH_Detect() == TM_LIS302DL_LIS3DSH_Device_LIS302DL) {
-	        /* Turn on GREEN and RED */
 	        LedOn(LED_GREEN | LED_RED);
 	        /* Initialize LIS302DL */
 	        TM_LIS302DL_LIS3DSH_Init(TM_LIS302DL_Sensitivity_2_3G, TM_LIS302DL_Filter_2Hz);
-	        Delay(100);
+	        Delay(1000);
 	    } else if (TM_LIS302DL_LIS3DSH_Detect() == TM_LIS302DL_LIS3DSH_Device_LIS3DSH) {
-	        /* Turn on BLUE and ORANGE */
 	        LedOn(LED_BLUE | LED_ORANGE);
 	        /* Initialize LIS3DSH */
 	        TM_LIS302DL_LIS3DSH_Init(TM_LIS3DSH_Sensitivity_2G, TM_LIS3DSH_Filter_800Hz);
-	        Delay(100);
+	        Delay(1000);
 	    } else {
 	        /*
 	         * Accelerometer not recognized
@@ -86,23 +106,23 @@ int main(void)
 
     	/* Turn LEDS on or off */
     	/* Check X axes */
-    	if (Axes_Data.X > 200) {
+    	if (Axes_Data.X > 400) {
     		LedOn(LED_RED);
     	} else {
     		LedOff(LED_RED);
     	}
-    	if (Axes_Data.X < -200) {
+    	if (Axes_Data.X < -400) {
     		LedOn(LED_GREEN);
     	} else {
-    		LedOff(LED_GREEN);
+    		//LedOff(LED_GREEN);
     	}
     	/* Check Y axes */
-    	if (Axes_Data.Y > 200) {
+    	if (Axes_Data.Y > 400) {
     		LedOn(LED_ORANGE);
     	} else {
     		LedOff(LED_ORANGE);
     	}
-    	if (Axes_Data.Y < -200) {
+    	if (Axes_Data.Y < -400) {
     		LedOn(LED_BLUE);
     	} else {
     		LedOff(LED_BLUE);
@@ -124,6 +144,30 @@ void msGPIO_Init(void)
 	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOD, &GPIO_InitStruct);
 	LedOff(LED_ALL);
+}
+
+/*
+ * Timer initialization
+ */
+void msTIM_Init(void){
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);
+
+	TIM_TimeBaseStructure.TIM_Period= 1250;
+	TIM_TimeBaseStructure.TIM_Prescaler= 21000;
+	TIM_TimeBaseStructure.TIM_ClockDivision= TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode= TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
+	TIM_Cmd(TIM4,ENABLE);
+
+	NVIC_InitTypeDef NVIC_InitStructure;
+    NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+	TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+	TIM_ITConfig(TIM4, TIM_IT_Update,ENABLE);
 }
 
 /*

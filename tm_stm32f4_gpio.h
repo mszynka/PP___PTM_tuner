@@ -32,7 +32,7 @@
 
 /* C++ detection */
 #ifdef __cplusplus
-extern C {
+//extern C {
 #endif
 /**
  * @addtogroup TM_STM32F4xx_Libraries
@@ -398,7 +398,7 @@ void TM_GPIO_Lock(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 
 /* C++ detection */
 #ifdef __cplusplus
-}
+//}
 #endif
 
 #endif
