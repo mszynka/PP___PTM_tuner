@@ -88,7 +88,7 @@ class Display{
 	Point_2d* endPoint;
 	Sprite* ball;
 
-public:
+  public:
 	Display(){
 		this->maze = new int*[84];
 		this->screen = new int*[84];
@@ -181,6 +181,8 @@ void TIM4_IRQHandler(void){
 	}
 }
 
+static Display screen;
+
 int main(void)
 {
 	SystemInit();
@@ -189,8 +191,6 @@ int main(void)
 	msTIM_Init();
 	PCD8544_Init(0x38);
 	accel_detect();
-
-	Display screen;
 
 	// 1. accelerometer			DONE
 	// 2. leds accel output		DONE
