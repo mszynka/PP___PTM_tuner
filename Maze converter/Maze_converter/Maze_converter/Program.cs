@@ -9,34 +9,29 @@ namespace Maze_converter
 		public static void Main (string[] args)
 		{
 			char[][] input = new char[48][];
-			for (int i = 0; i < 48; i++) {
-				input [i] = new char[84];
+			for (int y = 0; y < 48; y++) {
+				input [y] = new char[84];
 			}
 			string filename;
 			filename = Console.ReadLine ();
 			using (StreamReader sr = new StreamReader (filename)) {
-				for (int i = 0; i < 48; i++) {
-					for (int j = 0; j < 84; j++) {
-						input [i] [j] = Convert.ToChar (sr.Read ());
+				for (int y = 0; y < 48; y++) {
+					for (int x = 0; x < 84; x++) {
+						input [y] [x] = Convert.ToChar (sr.Read ());
 					}
 				}
 			}
 			using (StreamWriter sw = new StreamWriter (filename + ".o")) {
-				sw.Write ("{\n");
-				for (int i = 0; i < 48; i++) {
-					sw.Write ("{");
-					for (int j = 0; j < 84; j++) {
-						sw.Write (input [i] [j]);
-						if (j < 83)
-							sw.Write (",");
+				for (int y = 1; y < 47; y++) {
+					sw.Write ("");
+					for (int x = 1; x < 83; x++) {
+						if (input [y] [x] == '1') {
+							Console.Write (input [y] [x]);
+							sw.Write (" or ( x == " + x + " and y == " + y + ")");
+						}
 					}
-					sw.Write ("}");
-					if (i < 47)
-						sw.Write (",\n");
 				}
-				sw.Write ("\n};");
 			}
-			;
 		}
 	}
 }

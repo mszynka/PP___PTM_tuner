@@ -45,3 +45,5 @@ logs/
 *.userprefs
 bin/
 obj/
+*.exe
+*.exe*
