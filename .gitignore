@@ -40,7 +40,6 @@ build/*
 *.project
 
 logs/
-*.coproj
 *.elf.*
 *.userprefs
 bin/
