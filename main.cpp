@@ -133,7 +133,11 @@ class Display{
 	}
 
 	void redrawScene(){
-		this->screen = this->maze;
+		for(int x = 0; x<84; x++){
+			for(int y = 0; y<48; y++){
+				this->screen[x][y] = this->maze[x][y];
+			}
+		}
 		this->screen[this->ball->position.x][this->ball->position.y] = 1;
 		this->screen[this->ball->position.x+1][this->ball->position.y] = 1;
 		this->screen[this->ball->position.x][this->ball->position.y+1] = 1;
@@ -147,6 +151,7 @@ class Display{
 					PCD8544_DrawPixel(x,y,PCD8544_Pixel_Clear);
 			}
 		}
+		PCD8544_Refresh();
 	}
 
 	void blackScreen(){
@@ -155,7 +160,7 @@ class Display{
 				this->screen[x][y] = 1;
 			}
 		}
-		this->redrawScene();
+		PCD8544_Refresh();
 	}
 
 	void whiteScreen(){
@@ -164,7 +169,7 @@ class Display{
 				this->screen[x][y] = 0;
 			}
 		}
-		this->redrawScene();
+		PCD8544_Refresh();
 	}
 };
 
@@ -189,7 +194,7 @@ int main(void)
 	SystemCoreClockUpdate();
 	msGPIO_Init();
 	msTIM_Init();
-	PCD8544_Init(0x38);
+	PCD8544_Init(0x20);
 	accel_detect();
 
 	// 1. accelerometer			DONE
@@ -198,7 +203,8 @@ int main(void)
 	// 4. game project
 
 	// Application life span
-    while(1)
+    screen.whiteScreen();
+	while(1)
     {
     	Point_2d direction = accel_state();
     	screen.moveSprite(direction);
@@ -287,7 +293,7 @@ void accel_detect(void){
 		Delay(100);
 	} else {
 		// Accelerometer not recognized
-		LedOn(LED_ALL);
+		//LedOn(LED_ALL);
 		while(1);
 	}
 }
@@ -300,26 +306,5 @@ Point_2d accel_state(){
 	TM_LIS302DL_LIS3DSH_ReadAxes(&Axes_Data);
 	int x = ceil(Axes_Data.X/100);
 	int y = ceil(Axes_Data.Y/100);
-
-	if (Axes_Data.X > 400) {
-		LedOn(LED_RED);
-	} else {
-		LedOff(LED_RED);
-	}
-	if (Axes_Data.X < -400) {
-		LedOn(LED_GREEN);
-	} else {
-		LedOff(LED_GREEN);
-	}
-	if (Axes_Data.Y > 400) {
-		LedOn(LED_ORANGE);
-	} else {
-		LedOff(LED_ORANGE);
-	}
-	if (Axes_Data.Y < -400) {
-		LedOn(LED_BLUE);
-	} else {
-		LedOff(LED_BLUE);
-	}
 	return Point_2d(x,y);
 }
