@@ -112,7 +112,7 @@
     <File name="tm_stm32f4_lis302dl_lis3dsh.c" path="../display/tm_stm32f4_lis302dl_lis3dsh.c" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
     <File name="cmsis_lib/source" path="" type="2"/>
-    <File name="main.cpp" path="../display/main.cpp" type="1"/>
+    <File name="main.cpp" path="main.cpp" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_tim.c" path="cmsis_lib/source/stm32f4xx_tim.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="tm_stm32f4_gpio.c" path="../display/tm_stm32f4_gpio.c" type="1"/>
