@@ -87,7 +87,7 @@ class Display{
 			}
 		}
 		this->startPoint = new Point_2d(80, 44);
-		this->endPoint = new Point_2d(3,3);
+		this->endPoint = new Point_2d(2,2);
 		this->ball = new Point_2d(this->startPoint->x, this->startPoint->y);
 	}
 
@@ -95,14 +95,17 @@ class Display{
 		if(this-maze[position.x][position.y] == 0 and this->maze[position.x+1][position.y] == 0 and this->maze[position.x][position.y+1] == 0 and this->maze[position.x-1][position.y] == 0 and this->maze[position.x][position.y-1] == 0){
 			this->ball->x = position.x;
 			this->ball->y = position.y;
-			this->redrawScene();
 		}
 	}
 
 	bool moveSprite(Point_2d direction){
-		if(this->maze[this->ball->x-direction.x][this->ball->y-direction.y] == 0){
-			this->ball->x-=direction.x;
-			this->ball->y-=direction.y;
+		if(this->maze[this->ball->x-direction.x][this->ball->y-direction.y] == 0){/*
+		   this->maze[this->ball->x+(1*direction.x*-1)-direction.x][this->ball->y+(1*direction.y*-1)-direction.y] == 0
+		   ){*/
+			if(this->maze[this->ball->x+1-direction.x][this->ball->y-direction.y] == 0 and this->maze[this->ball->x-1-direction.x][this->ball->y-direction.y] == 0)
+				this->ball->x-=direction.x;
+			if(this->maze[this->ball->x-direction.x][this->ball->y+1-direction.y] == 0 and this->maze[this->ball->x-direction.x][this->ball->y-1-direction.y] == 0)
+				this->ball->y-=direction.y;
 			if((this->ball->x == this->endPoint->x and this->ball->y == this->endPoint->y)
 			   or (this->ball->x == this->endPoint->x+1 and this->ball->y == this->endPoint->y)
 			   or (this->ball->x == this->endPoint->x-1 and this->ball->y == this->endPoint->y)
@@ -111,9 +114,9 @@ class Display{
 			   or (this->ball->x == this->endPoint->x+1 and this->ball->y == this->endPoint->y+1)
 			   or (this->ball->x == this->endPoint->x-1 and this->ball->y == this->endPoint->y-1)
 			){
+				LedOn(LED_ALL);
 				this->blackScreen();
-				Delay(3000);
-				this->whiteScreen();
+				while(1);
 			}
 			return true;
 		}
@@ -184,7 +187,7 @@ int main(void)
     	if(screen->moveSprite(direction)){
     		screen->redrawScene();
     	}
-    	Delay(300);
+    	Delay(100);
     }
     return 0;
 }
