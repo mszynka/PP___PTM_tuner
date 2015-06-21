@@ -177,15 +177,14 @@ int main(void)
 
 	// Application life span
     Point_2d direction;
+    screen->redrawScene();
 	while(1)
     {
-		screen->redrawScene();
-    	direction = accel_state();
-    	if(!screen->moveSprite(direction)){
-    		LedOn(LED_ALL);
-    		while(1);
+		direction = accel_state();
+    	if(screen->moveSprite(direction)){
+    		screen->redrawScene();
     	}
-    	Delay(3000);
+    	Delay(300);
     }
     return 0;
 }
@@ -232,7 +231,7 @@ void accel_detect(void){
 Point_2d accel_state(){
 	/* Read axes data from initialized accelerometer */
 	TM_LIS302DL_LIS3DSH_ReadAxes(&Axes_Data);
-	int x = ceil(Axes_Data.X/100);
+	int x = ceil(Axes_Data.X/100)*(-1);
 	int y = ceil(Axes_Data.Y/100);
 
     /* Turn LEDS on or off */
