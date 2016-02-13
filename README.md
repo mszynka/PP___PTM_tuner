@@ -1,4 +1,4 @@
-STM guitar tuner
+STM Nokia style maze game
 ==================
 
-Completly new way. Due to the left time and no serious progress it is time to change the project. Right now this group is one-man group therefore this application won't be converting sound at all. There will be a simulated input, button to change modes probably and that's about it.
+Throughout the way I had to change objective of this project and I've ultimately created a game. I've used Nokia 3310/3330 display and simple maze generator to end this assignment. It's not pretty and surely not well designed but timeframe wasn't negotiable and I was alone on this one. It works though. Not my bests but it works.
