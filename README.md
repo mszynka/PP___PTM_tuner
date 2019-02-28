@@ -1,4 +1,14 @@
-STM Nokia style maze game
-==================
+# Maze game
 
-Throughout the way I had to change objective of this project and I've ultimately created a game. I've used Nokia 3310/3330 display and simple maze generator to end this assignment. It's not pretty and surely not well designed but timeframe wasn't negotiable and I was alone on this one. It works though. Not my bests but it works.
+## 1. Objectives
+
+Create a simple game for STM32 with generated mazes and gyroscope controller.
+
+## 2. Design
+
+It uses:
+ - STM32F407,
+ - "Nokia" SPI LCD (84x48px),
+ - built-in gyroscope.
+ 
+ For reset and select I've used on-board buttons.
